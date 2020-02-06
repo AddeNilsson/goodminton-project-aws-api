@@ -1,0 +1,11 @@
+{
+  "body": "{\"won\":\"2\",\"lost\":\"1\",\"wo\":\"0\",\"gamesTotal\":\"3\",\"ratio\":\"0.5\",\"username\":\"Mr. Mocker\"}",
+  "pathParameters": {
+    "id": "2bac5890-48bf-11ea-a3ce-e9aecec338f1"
+  },
+  "requestContext": {
+    "identity": {
+      "cognitoIdentityId": "USER-SUB-1234"
+    }
+  }
+}

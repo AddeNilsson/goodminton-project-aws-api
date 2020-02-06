@@ -1,0 +1,8 @@
+{
+  "body": "{\"won\":\"0\",\"lost\":\"0\",\"wo\":\"0\",\"gamesTotal\":\"0\",\"ratio\":\"0\",\"username\":\"Mr. Mocker\"}",
+  "requestContext": {
+    "identity": {
+      "cognitoIdentityId": "USER-SUB-1234"
+    }
+  }
+}

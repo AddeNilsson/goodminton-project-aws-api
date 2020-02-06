@@ -15,6 +15,7 @@ provider:
   region: eu-west-2
   environment:
    tableName: ${env:TABLE_NAME}
+   playerDataTableName: ${env:PLAYER_DATA_TABLE_NAME}
   iamRoleStatements:
    - Effect: Allow
      Action:
@@ -64,6 +65,38 @@ functions:
     events:
       - http:
           path: notes/{id}
+          method: delete
+          cors: true
+          authorizer: aws_iam
+  createPlayerData:
+    handler: handlers/playerData/create.main
+    events:
+      - http:
+          path: player
+          method: post
+          cors: true
+          authorizer: aws_iam
+  getPlayerData:
+    handler: handlers/playerData/get.main
+    events:
+      - http:
+          path: player/{id}
+          method: get
+          cors: true
+          authorizer: aws_iam
+  updatePlayerData:
+    handler: handlers/playerData/update.main
+    events:
+      - http:
+          path: player/{id}
+          method: put
+          cors: true
+          authorizer: aws_iam
+  deletePlayerData:
+    handler: handlers/playerData/delete.main
+    events:
+      - http:
+          path: player/{id}
           method: delete
           cors: true
           authorizer: aws_iam
