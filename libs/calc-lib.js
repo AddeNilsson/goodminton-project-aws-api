@@ -1,5 +1,5 @@
-const calcWinRatio = ({ win, gamesTotal }) => (
-  Math.round((win / gamesTotal) * 100) / 100 || 0
+const calcWinRatio = ({ won, gamesTotal }) => (
+  Math.round((won / gamesTotal) * 100) / 100 || 0
 );
 
 export default calcWinRatio;

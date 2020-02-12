@@ -1,0 +1,9 @@
+{
+  "body": "{\"playerDataId\":\"0000-00-0000-00\",\"username\":\"Mr. Mocker\"}",
+  "requestContext": {
+    "identity": {
+      "cognitoIdentityId": "USER-SUB-1234",
+      "cognitoAuthenticationProvider": "[\"cognito-idp.us-east-1.amazonaws.com/us-east-1_xxxxxxxxx,cognito-idp.us-east-1.amazonaws.com/us-east-1_aaaaaaaaa:CognitoSignIn:qqqqqqqq-1111-2222-3333-rrrrrrrrrrrr\"]"
+    }
+  }
+}

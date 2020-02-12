@@ -1,0 +1,8 @@
+{
+  "body": "{\"actionText\":\"register_win\",\"amountWin\":1,\"amountLost\":0,\"amountWo\":0,\"amountGamesTotal\":1,\"revertable\":1,\"reverted\":0}",
+  "requestContext": {
+    "identity": {
+      "cognitoIdentityId": "USER-SUB-1234"
+    }
+  }
+}

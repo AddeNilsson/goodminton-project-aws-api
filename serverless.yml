@@ -16,6 +16,7 @@ provider:
   environment:
    tableName: ${env:TABLE_NAME}
    playerDataTableName: ${env:PLAYER_DATA_TABLE_NAME}
+   logsTableName: ${env:LOGS_TABLE_NAME}
   iamRoleStatements:
    - Effect: Allow
      Action:
@@ -98,6 +99,54 @@ functions:
       - http:
           path: player/{id}
           method: delete
+          cors: true
+          authorizer: aws_iam
+  listPlayerData:
+    handler: handlers/playerData/list.main
+    events:
+      - http:
+          path: player
+          method: get
+          cors: true
+          authorizer: aws_iam
+  createLog:
+    handler: handlers/playerLogs/create.main
+    events:
+      - http:
+          path: logs
+          method: post
+          cors: true
+          authorizer: aws_iam
+  # getLogs:
+  #   handler: handlers/playerLogs/get.main
+  #   events:
+  #     - http:
+  #         path: logs/{id}
+  #         method: get
+  #         cors: true
+  #         authorizer: aws_iam
+  updateLog:
+    handler: handlers/playerLogs/update.main
+    events:
+      - http:
+          path: logs/{id}
+          method: put
+          cors: true
+          authorizer: aws_iam
+  # deleteLog:
+  #   handler: handlers/playerLogs/delete.main
+  #   events:
+  #     - http:
+  #         path: logs/{id}
+  #         method: delete
+  #         cors: true
+  #         authorizer: aws_iam
+  listLogs:
+    handler: handlers/playerLogs/list.main
+    events:
+      - http:
+          path: logs
+          method: get
           cors: true
           authorizer: aws_iam
 resources:

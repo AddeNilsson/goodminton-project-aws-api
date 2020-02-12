@@ -6,7 +6,7 @@ export async function main(event, context) {
   const data = JSON.parse(event.body);
 
   const { won, lost, wo, gamesTotal } = data;
-  const ratio = calcWinRatio({ won, gamesTotal });
+  const winRatio = calcWinRatio({ won, gamesTotal });
 
   const params = {
     TableName: process.env.playerDataTableName,
@@ -14,22 +14,22 @@ export async function main(event, context) {
       userId: event.requestContext.identity.cognitoIdentityId,
       playerDataId: event.pathParameters.id
     },
-    UpdateExpression: "SET won = :won, lost = :lost, wo = :wo, gamesTotal = :gamesTotal, ratio = :ratio",
+    UpdateExpression: "SET won = :won, lost = :lost, wo = :wo, gamesTotal = :gamesTotal, winRatio = :winRatio, touched = :touched",
     ExpressionAttributeValues: {
       ":won": won,
       ":lost": lost,
       ":wo": wo,
       ":gamesTotal": gamesTotal,
-      ":ratio": ratio,
+      ":winRatio": winRatio,
+      ":touched": Date.now(),
     },
     ReturnValues: "ALL_NEW"
   };
 
   try {
     const result = await dbCall('update', params);
-    return success(result);
+    return success(result.Attributes);
   } catch (e) {
-    console.error('#############', e);
     return failure({ status: false });
   }
 }
